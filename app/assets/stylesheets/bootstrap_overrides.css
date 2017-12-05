@@ -1,0 +1,12 @@
+.navbar-default {
+    margin-bottom: 0px;
+    background-color: #fff;
+    margin-top: -10px;
+}
+
+.jumbotron {
+    background: url(top.jpg);
+	background-size: cover;
+	margin-top: 0px;
+	height: 500px;
+}
