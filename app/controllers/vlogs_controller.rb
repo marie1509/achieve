@@ -1,5 +1,6 @@
 class VlogsController < ApplicationController
   before_action :set_vlog, only: [:show, :edit, :update, :destroy]
+  before_action :force_login, only: [:new, :show, :edit]
 
   def index
     @vlogs=Vlog.all
@@ -65,5 +66,12 @@ class VlogsController < ApplicationController
 
   def set_vlog
     @vlog=Vlog.find(params[:id])
+  end
+
+  def force_login
+    #これに何のパラメーターを渡す必要があるだろうか、、、、
+    if !logged_in?
+      redirect_to new_session_path, notice:"ログインしてください"
+    end
   end
 end

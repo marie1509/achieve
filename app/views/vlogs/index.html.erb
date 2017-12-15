@@ -1,8 +1,8 @@
 <div class="content">
     <h1>Blogs</h1>
-    <p><%= notice %></p>
+  
 
-    <table class="table table-condensed" class="row">
+    <table class="table" class="container">
 
         <tr>
             <th>Title</th>
@@ -18,7 +18,7 @@
         <td class="col-md-5"><%= vlog.content %></td>
         <td  style="width:20px"><%= link_to 'SHOW', vlog_path(vlog.id), class: "btn btn-info" %></td>
         <td  style="width:20px"><%= link_to 'EDIT', edit_vlog_path(vlog.id) , class: "btn btn-success" %></td>
-        <td  style="width:20px"><%= link_to 'DELETE', vlog_path(vlog.id), method: :delete , data: { confirm: '本当に削除していいですか？'},class: "btn btn-danger" %></td>
+        <td  style="width:30px"><%= link_to 'DELETE', vlog_path(vlog.id), method: :delete , data: { confirm: '本当に削除していいですか？'},class: "btn btn-danger" %></td>
       </tr>
 
     <% end %>
