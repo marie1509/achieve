@@ -5,8 +5,14 @@
 }
 
 .jumbotron {
-    background: url(top.jpg);
+  background: url(top.jpg);
 	background-size: cover;
 	margin-top: 0px;
 	height: 500px;
+}
+
+
+.btn {
+  font-size: 8px;
+  padding: 5px;
 }

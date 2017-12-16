@@ -1,24 +1,24 @@
-<div class="content">
+<div class="content container">
     <h1>Blogs</h1>
-  
 
-    <table class="table" class="container">
+
+    <table class="table row">
 
         <tr>
-            <th>Title</th>
-            <th>Content</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th class="col-md-3">Title</th>
+            <th class="col-md-6">Content</th>
+            <th class="col-md-1"></th>
+            <th class="col-md-1"></th>
+            <th class="col-md-1"></th>
         </tr>
 
       <% @vlogs.each do |vlog| %>
       <tr>
-        <td class="col-md-3"><%= vlog.title %></td>
-        <td class="col-md-5"><%= vlog.content %></td>
-        <td  style="width:20px"><%= link_to 'SHOW', vlog_path(vlog.id), class: "btn btn-info" %></td>
-        <td  style="width:20px"><%= link_to 'EDIT', edit_vlog_path(vlog.id) , class: "btn btn-success" %></td>
-        <td  style="width:30px"><%= link_to 'DELETE', vlog_path(vlog.id), method: :delete , data: { confirm: '本当に削除していいですか？'},class: "btn btn-danger" %></td>
+        <td><%= vlog.title %></td>
+        <td><%= vlog.content %></td>
+        <td class="button"><%= link_to 'SHOW', vlog_path(vlog.id), class: "btn btn-info" %></td>
+        <td class="button"><%= link_to 'EDIT', edit_vlog_path(vlog.id) , class: "btn btn-success" %></td>
+        <td class="button"><%= link_to 'DELETE', vlog_path(vlog.id), method: :delete , data: { confirm: '本当に削除していいですか？'},class: "btn btn-danger" %></td>
       </tr>
 
     <% end %>
