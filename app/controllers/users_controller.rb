@@ -4,6 +4,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    #headerのProfileボタンを押すと現在ログインしているユーザーのidが送信されるのでそれを取得
+    @user = User.find(params[:id])
+
+    #rails cでuser.favorite_vlogsを試すとちゃんとお気に入りしたブログが取得できるのになぜ？
+    @vlogs = @user.favorite_vlogs
+
+  end
+
   def create
     #createアクションで最初に行うことはユーザーがフォームに入力した値で
     #Userモデルの新しいインスタンスを生成すること
@@ -14,11 +23,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def show
-    #paramsメソッドで表示するユーザーのidを取得
-    @user = User.find(params[:id])
   end
 
 

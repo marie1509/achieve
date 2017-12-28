@@ -31,12 +31,17 @@ footer {
     margin: auto 0;
     width: 100%;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 // div.content.container {
 //     margin: auto 0;
 //
 // }
+
+.content{
+  margin-top:50px;
+}
 
 .content h1 {
     text-align: center;
@@ -54,6 +59,7 @@ footer {
 th , td {
   text-align: center;
   width: 200px;
+  height: 43px;
 }
 
 

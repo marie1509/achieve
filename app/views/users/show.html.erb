@@ -1,5 +1,22 @@
 <h2>Dear <%= @user.name %>,</h2>
-</br>
 <h2>Welcome to this blog!</h2>
-<h3><%= link_to 'Let\'s create your own blog from here',new_vlog_path %></h3>
-<h3><%= link_to 'Let\'s see the list of your blogs from here',vlogs_path %></h3>
+</br>
+<!-- <h3><%= link_to 'Create a new blog from here',new_vlog_path %></h3>
+<h3><%= link_to 'Check the list of all blogs from here',vlogs_path %></h3> -->
+
+<div class="content container">
+  <h3>Here are the list of your favorite blogs</h3>
+    <table class="table">
+      <tr>
+        <th class="col-md-4">Title</th>
+        <th class="col-md-6">Content</th>
+      </tr>
+
+    <% @vlogs.each do |vlog| %>
+      <tr>
+        <td><%= vlog.title %></td>
+        <td><%= vlog.content %></td>
+      </tr>
+   <% end %>
+   </table>
+</div>

@@ -4,6 +4,7 @@ class VlogsController < ApplicationController
 
   def index
     @vlogs=Vlog.all
+
   end
 
   def new
@@ -25,7 +26,7 @@ class VlogsController < ApplicationController
    # redirect_to new_vlog_path
 
    @vlog = Vlog.new(vlog_params)
-
+   @vlog.user_id = current_user.id
    if @vlog.save
       redirect_to vlogs_path, notice:"ブログを作成しました！"
 
@@ -36,6 +37,8 @@ class VlogsController < ApplicationController
 
   def show
     set_vlog #idを取得
+
+    @favorite = current_user.favorites.find_by(vlog_id: @vlog.id)
   end
 
   def edit

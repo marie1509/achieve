@@ -17,8 +17,11 @@
         <td><%= vlog.title %></td>
         <td><%= vlog.content %></td>
         <td class="button"><%= link_to 'SHOW', vlog_path(vlog.id), class: "btn btn-info" %></td>
+
+       <% if current_user == vlog.user %>
         <td class="button"><%= link_to 'EDIT', edit_vlog_path(vlog.id) , class: "btn btn-success" %></td>
         <td class="button"><%= link_to 'DELETE', vlog_path(vlog.id), method: :delete , data: { confirm: '本当に削除していいですか？'},class: "btn btn-danger" %></td>
+       <% end %>
       </tr>
 
     <% end %>

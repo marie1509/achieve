@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6}
 
+  has_many :vlogs
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_vlogs, through: :favorites, source: :vlog
 end

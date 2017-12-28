@@ -1,3 +1,11 @@
 <h1>ブログ詳細画面</h1>
 <p class="details">タイトル: <%= @vlog.title %></p>
 <p class="details">内容: <%= @vlog.content %></p>
+
+<% unless @vlog.user == current_user %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除する', favorite_path(@vlog.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'お気に入りする', favorites_path(vlog_id: @vlog.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
