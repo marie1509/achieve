@@ -17,6 +17,7 @@ class VlogsController < ApplicationController
 
   def confirm
     @vlog = Vlog.new(vlog_params)
+
     render :new if @vlog.invalid?
   end
 
@@ -27,6 +28,9 @@ class VlogsController < ApplicationController
 
    @vlog = Vlog.new(vlog_params)
    @vlog.user_id = current_user.id
+   # 画像を投稿しない場合にエラーが出ないようにif文を追加
+   @vlog.image.retrieve_from_cache! params[:cache][:image] if @vlog.image.present?#追加
+
    if @vlog.save
       redirect_to vlogs_path, notice:"ブログを作成しました！"
 
@@ -42,7 +46,9 @@ class VlogsController < ApplicationController
   end
 
   def edit
+
     set_vlog #idを取得
+
   end
 
   def update
@@ -64,7 +70,7 @@ class VlogsController < ApplicationController
 
   private
   def vlog_params
-    params.require(:vlog).permit(:title, :content)
+    params.require(:vlog).permit(:title, :content, :image)
   end
 
   def set_vlog

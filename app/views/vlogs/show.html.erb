@@ -1,6 +1,8 @@
 <h1>ブログ詳細画面</h1>
 <p class="details">タイトル: <%= @vlog.title %></p>
 <p class="details">内容: <%= @vlog.content %></p>
+<!-- 画像を投稿しない場合にエラーが出ないようにif文を追加 -->
+<p class="details">画像: <%= image_tag @vlog.image_url if @vlog.image.present? %></p>
 
 <% unless @vlog.user == current_user %>
   <% if @favorite.present? %>

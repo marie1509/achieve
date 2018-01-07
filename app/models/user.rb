@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :vlogs
   has_many :favorites, dependent: :destroy
   has_many :favorite_vlogs, through: :favorites, source: :vlog
+
+  mount_uploader :image, ImageUploader
 end

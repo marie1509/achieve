@@ -6,6 +6,11 @@
 
   <p>タイトル:<%= @vlog.title %></p>
   <p>本文:<%= @vlog.content %></p>
+  <p>画像:
+    <%= hidden_field_tag :"cache[image]",@vlog.image.cache_name%>
+    <!-- 画像を投稿しない場合にエラーが出ないようにif文を追加 -->
+    <%= image_tag(@vlog.image.url)if @vlog.image.present? %>
+  </p>
   <%= form.submit  "Register" %>
 <% end %>
 

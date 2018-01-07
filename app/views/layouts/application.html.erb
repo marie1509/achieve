@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Achieve</title>
+    <title>Blogs</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -33,10 +33,12 @@
         <div id="tab2" class="collapse navbar-collapse navbar-right">
           <ul class="header-right  clearfix">
             <% if logged_in? %>
+            <li><%= image_tag @current_user.image_url ,class: "profile_image" if @current_user.image.present? %></li>
             <li><%= @current_user.name  %>さん</li>
             <li><%= link_to "Profile", user_path(current_user.id) %></li>
 
             <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+
             <% else %>
             <li><%= link_to "Sign up", new_user_path %></li>
             <li><%= link_to "Login", new_session_path %></li>

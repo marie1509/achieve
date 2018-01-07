@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+  def index
+  end
+
   def new
     #ユーザー登録フォーム作成のためのインスタンス
     @user = User.new
@@ -25,9 +29,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    # まず更新したいユーザーのidを取得する
+    @user = User.find(params[:id])
+  end
+
+  def update
+    # まず更新したいユーザーのidを取得する
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      redirect_to user_path(@user.id), notice: "プロフィール情報を編集しました！"
+    else
+     render 'edit'
+    end
+  end
 
   private
   def user_params
-    params.require(:user).permit(:name,:email,:password,:password_confirmation)
+    params.require(:user).permit(:name,:email,:password,:password_confirmation,:image)
+
   end
 end
